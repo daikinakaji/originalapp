@@ -1,0 +1,68 @@
+
+h1,h2 {
+    font-style: italic;
+    // color: white;
+  }
+
+h1 {
+  text-align: center;
+  font-size: 24px;
+}
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+input,textarea,select,.uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+.alert {
+  margin-bottom: 0px;
+  position: fixed;
+  width: 50%;
+  z-index: 1000;
+}
+body {
+  padding-top: 60px;
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  padding-top: 9px;
+
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+.top-text {
+  font-size: 50px;
+}
+
+.top-hero-container {
+  padding-top: 150px;
+}

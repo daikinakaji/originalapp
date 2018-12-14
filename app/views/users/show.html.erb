@@ -1,0 +1,17 @@
+
+<% if logged_in? %>
+<header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <%= link_to "Zyuken", root_path, id: "logo" %>
+      <nav>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "ホーム","#" %></li>
+          <li><%= link_to "仲間を探す",   '#' %></li>
+          <li><%= link_to "記録する", "#" %></li>
+          <li><%= link_to "その他","#" %></li>
+          <li><%= link_to "ログアウト",logout_path,method: :delete %></li>
+        </ul>
+      </nav>
+    </div>
+  <% end %>
