@@ -1,0 +1,35 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <%= link_to "Zyuken", user_path(@user),id: "logo" %>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "ホーム",user_path(@user)  %></li>
+          <li><%= link_to "仲間を探す",   '#' %></li>
+          <li><%= link_to "記録する", "#" %></li>
+          <li><%= link_to "その他",edit_user_path(@user) %></li>
+          <li><%= link_to "ログアウト",logout_path,method: :delete %></li>
+        </ul>
+      </nav>
+    </div>
+</header>
+   <div class="container">
+
+
+    <div class="contents row">
+   <%= link_to "一覧に戻る",user_path(@user) %>
+    <%= form_for @blog do |f| %>
+    <%= f.hidden_field :user_id %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+     <%= f.label :image %>
+     <%= f.text_field :image %>
+
+     <%=  f.label :content %>
+     <%=  f.text_area :content, size: "60x12" %>
+
+     <%= f.submit "投稿する",class: "btn btn-primary" %>
+  <% end %>
+</div>
+</div>

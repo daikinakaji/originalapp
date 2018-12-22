@@ -1,17 +1,34 @@
 
 <% if logged_in? %>
-<header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container">
-      <%= link_to "Zyuken", root_path, id: "logo" %>
-      <nav>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "Zyuken", user_path(@user),id: "logo"%>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "ホーム", user_path(@user) %></li>
+            <li><%= link_to "仲間を探す",   '#' %></li>
+            <li><%= link_to "記録する", new_blog_path %></li>
+            <li><%= link_to "その他",edit_user_path(current_user) %></li>
+            <li><%= link_to "ログアウト",logout_path,method: :delete %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <h2 class="post-top">記事一覧</h2>
+      <ul class="list_article">
+        <% unless @blogs.blank? %>
+          <% @blogs.each do |blog| %>
+           <li>
+             <h2><%= blog.title %></h2>
+             <% unless blog.image.blank? %>
+              <p><img src="<%= blog.image %>"></p>
+             <% end %>
+             <p><%= blog.content %></p>
+             <p><%= blog.created_at %></p>
+             <%= link_to "削除する",blog,method: :delete %>
+           </li>
+          <% end %>
+        <% end %>
+      </ul>
 
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "ホーム","#" %></li>
-          <li><%= link_to "仲間を探す",   '#' %></li>
-          <li><%= link_to "記録する", "#" %></li>
-          <li><%= link_to "その他","#" %></li>
-          <li><%= link_to "ログアウト",logout_path,method: :delete %></li>
-        </ul>
-      </nav>
-    </div>
-  <% end %>
+<% end %>
