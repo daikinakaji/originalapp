@@ -1,12 +1,12 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
-      <%= link_to "Zyuken", user_path(@user),id: "logo" %>
+      <%= link_to "Zyuken", blogs_path,id: "logo" %>
       <nav>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "ホーム",user_path(@user)  %></li>
+          <li><%= link_to "ホーム",blogs_path  %></li>
           <li><%= link_to "仲間を探す",   '#' %></li>
           <li><%= link_to "記録する", "#" %></li>
-          <li><%= link_to "その他",edit_user_path(@user) %></li>
+          <li><%= link_to "その他",edit_user_path(current_user) %></li>
           <li><%= link_to "ログアウト",logout_path,method: :delete %></li>
         </ul>
       </nav>
@@ -16,7 +16,7 @@
 
 
     <div class="contents row">
-   <%= link_to "一覧に戻る",user_path(@user) %>
+   <%= link_to "一覧に戻る",blogs_path %>
     <%= form_for @blog do |f| %>
     <%= f.hidden_field :user_id %>
 

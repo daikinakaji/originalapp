@@ -8,11 +8,16 @@ class BlogsController < ApplicationController
     @blog = current_user.blogs.new(blog_params)
 
     if @blog.save
-      redirect_to user_path(@blog.user_id) ,success: '投稿に成功しました'
+      redirect_to blogs_path ,success: '投稿に成功しました'
     else
       flash.now[:danger] = '投稿に失敗しました'
       render :new
     end
+  end
+
+  def index
+    @blogs = Blog.all
+    @user = User.find(session[:user_id])
   end
 
   def destroy
@@ -22,6 +27,8 @@ class BlogsController < ApplicationController
     redirect_to request.referrer || root_url
     #code
   end
+
+  
 
   private
   def blog_params

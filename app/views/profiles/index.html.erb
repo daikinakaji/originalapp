@@ -1,0 +1,42 @@
+<% if logged_in? %>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "Zyuken", blogs_path,id: "logo"%>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "ホーム", blogs_path %></li>
+            <li><%= link_to "仲間を探す",   '#' %></li>
+            <li><%= link_to "記録する", new_blog_path %></li>
+            <li><%= link_to "その他",profiles_index_path %></li>
+            <li><%= link_to "ログアウト",logout_path,method: :delete %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+   <div class="main-panel">
+     <h2>設定</h2>
+     <div id="setting-left">
+       <div class="pdn-l15">
+         <nav>
+           <dl>
+             <dt>プロフィール</dt>
+              <dd><a href="#">プロフィール</a></dd>
+              <dd><a href="#">目標設定</a></dd>
+              <dd><a href="#">プロフィール設定</a></dd>
+           </dl>
+           <dl>
+             <dd></dd>
+             <dd></dd>
+           </dl>
+           <dl>
+             <dt>退会</dt>
+             <dd><a href="#">退会する</a></dd>
+           </dl>
+         </nav>
+
+       </div>
+     </div>
+
+   </div>
+
+<% end %>

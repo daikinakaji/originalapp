@@ -1,19 +1,20 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.all
+
+  end
+
   def new
     @user = User.new
-
   end
 
-  def show
-    @user = User.find(params[:id])
-    @blogs = Blog.where(user_id: session[:user_id])
-  end
+
+
 
 
   def create
     @user = User.new(user_params)
     if @user.save
-
       redirect_to @user,success:"ようこそzyukenへ"
     else
       flash.now[:danger] = "登録に失敗しました"
@@ -21,6 +22,8 @@ class UsersController < ApplicationController
 
     end
   end
+
+
 
   def edit
     @user = User.find(params[:id])

@@ -67,10 +67,76 @@ textarea {
   padding-top: 150px;
 }
 
-.list_article li {
-  border-top: 1px solid red;
+.time-line  {
+  border: 1px solid #ccc;
+  border-top: 2px solid blue;
 }
 
+.time-line h2 {
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+  font-size: 18px;
+  text-align:center;
+}
 .post-top {
   text-align: center;
+}
+
+
+//
+
+.profile-area {
+  width: 1020px;
+  display: inline-block;
+}
+#profile-image {
+  float:left;
+  width: 138px;
+  height: 138px;
+}
+.profile-bt {
+  margin-top: 10px;
+}
+.profile-bt a {
+  height: 32px;
+  width: 140px;
+  border:1px solid #0c96f2;
+  padding: 10px 12px;
+  margin-left: 10px;
+  font-size: 12px;
+  border-radius: 5px;
+}
+#profile-contents p {
+  display:inline-block;
+  padding-right: 10px;
+}
+#profile-contents {
+  margin-left: 160px;
+  padding: 20px;
+  margin-top: 20px;
+  border:2px solid black;
+}
+#profile-contents p {
+  font-size: 24px;
+}
+.profile-bt {
+  float: right;
+}
+#left-contents {
+  float: left;
+  width: 138px;
+  margin-right: 20px;
+  margin-top: 25px;
+}
+dl dd {
+  font-size: 13px;
+  border-left: 2px solid #ccc;
+  padding: 3px 0 3px 8px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+#main {
+  width: 780px;
+  float: left;
+  text-align: left;
 }
