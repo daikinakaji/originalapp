@@ -1,14 +1,15 @@
 class BlogsController < ApplicationController
+  before_action:correct_user,only:[:edit,:update,:index,:show]
   def new
     @blog = Blog.new
-    @user = User.find(session[:user_id])
+
   end
 
   def create
     @blog = current_user.blogs.new(blog_params)
 
     if @blog.save
-      redirect_to blogs_path ,success: '投稿に成功しました'
+      redirect_to  current_user ,success: '投稿に成功しました'
     else
       flash.now[:danger] = '投稿に失敗しました'
       render :new
@@ -17,7 +18,7 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = Blog.all
-    @user = User.find(session[:user_id])
+    @blog = Blog.find_by(params[:id])
   end
 
   def destroy

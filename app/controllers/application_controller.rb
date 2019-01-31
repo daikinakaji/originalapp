@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :warning, :danger
   # include SessionsHelper
   helper_method :current_user, :logged_in?
-  
+
   def log_in(user)
     session[:user_id] = user.id    #code
   end
@@ -23,5 +23,14 @@ class ApplicationController < ActionController::Base
   def log_out
     session.delete(:user_id)
     @current_user = nil
+  end
+
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "ログインしてください"
+      redirect_to login_url
+
+    end
+    #code
   end
 end

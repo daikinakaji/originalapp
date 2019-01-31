@@ -9,18 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <%= link_to "Zyuken", root_path, id: "logo" %>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",root_path %></li>
-            <li><%= link_to "Help",   '#' %></li>
-            <li><%= link_to "Log in", login_path %></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+  <%= render 'layouts/header' %>
 
   <body>
     <div class="container">
@@ -35,7 +24,6 @@
       $(".alert").fadeOut(5000);
     });
     </script>
-    <%= debug(params) if Rails.env.development? %>
-    <%= debug @blogs if Rails.env.development? %>
+    
   </body>
 </html>

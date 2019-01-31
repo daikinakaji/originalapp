@@ -1,34 +1,74 @@
 
-<% if logged_in? %>
-  <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <%= link_to "Zyuken", blogs_path,id: "logo"%>
+
+
+    <div class="profile-area">
+      <div id="profile-image">
+        <a href="#">image</a>
+      </div>
+      <div id="profile-contents">
+          <p><%= @user.name %></p><span><%= @user.college_name %></span> <span><%= @user.address %></span>
+        <div class="profile-bt">
+          <a href="#">目標を設定する</a>
+          <a href="#">プロフィールを設定する</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contents">
+      <div id="left-contents">
         <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "ホーム", blogs_path %></li>
-            <li><%= link_to "仲間を探す",   '#' %></li>
-            <li><%= link_to "記録する", new_blog_path %></li>
-            <li><%= link_to "その他",edit_user_path(current_user) %></li>
-            <li><%= link_to "ログアウト",logout_path,method: :delete %></li>
-          </ul>
+          <dl>
+            <dt>学習管理</dt>
+            <dd><a href="#">本棚</a></dd>
+            <dd><a href="#">学習時間</a></dd>
+            <dd><a href="#">目標設定</a></dd>
+          </dl>
+        </nav>
+        <nav>
+          <dl>
+            <dt>コミュニケーション</dt>
+            <dd><a href="#">プロフィール</a></dd>
+            <dd><a href="#">友達</a></dd>
+            <dd><a href="#">メッセージ</a></dd>
+          </dl>
+        </nav>
+        <nav>
+          <dl>
+            <dt>アウトプット</dt>
+            <dd><a href="#">記事を書く</a></dd>
+          </dl>
         </nav>
       </div>
-    </header>
-    <h2 class="post-top">記事一覧</h2>
-      <ul class="list_article">
-        <% unless @blogs.blank? %>
-          <% @blogs.each do |blog| %>
-           <li>
-             <h2><%= blog.title %></h2>
-             <% unless blog.image.blank? %>
-              <p><img src="<%= blog.image %>"></p>
-             <% end %>
-             <p><%= blog.content %></p>
-             <p><%= blog.created_at %></p>
-             <%= link_to "削除する",blog,method: :delete %>
-           </li>
-          <% end %>
-        <% end %>
-      </ul>
+      <div id="main">
+          <section class="hours-panel">
+            <h2 class="mgn15">学習時間</h2>
 
-<% end %>
+            <%= month_calendar events: @meetings do |date| %>
+             <%= date %>
+
+             <% end %>
+          </section>
+          <div class="time-line">
+            <h2>タイムライン</h2>
+            <ul class="list_article">
+              <% unless @blogs.blank? %>
+                <% @blogs.each do |blog| %>
+                 <li>
+                   <h3><%= blog.title %></h3>
+                   <% unless blog.image.blank? %>
+                    <p><img src="<%= blog.image %>"></p>
+                   <% end %>
+                   <p><%= blog.content %></p>
+                   <p><%= blog.created_at %></p>
+                   <p><%= blog.user.name %></p>
+                   <% if current_user == blog.user %>
+                   <%= link_to "削除する",blog,method: :delete %>
+                   <% end %>
+                 </li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+      </div>
+
+    </div>

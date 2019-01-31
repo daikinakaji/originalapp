@@ -42,7 +42,20 @@ body {
   padding-top: 9px;
 
 }
+header nav {
+  float: right;
+}
+header li {
+  float: left;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  list-style: none;
 
+}
+header li a {
+  color: white;
+}
 section {
   overflow: auto;
 }
@@ -139,4 +152,14 @@ dl dd {
   width: 780px;
   float: left;
   text-align: left;
+}
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
 }

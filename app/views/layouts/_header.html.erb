@@ -1,0 +1,24 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <% if logged_in? %>
+      <%= link_to "Zyuken", user_path(current_user.id), id: "logo" %>
+      <% else %>
+      <%= link_to "Zyuken", root_path, id: "logo" %>
+        <% end %>
+      <nav>
+        <% if logged_in? %>
+        <li><%= link_to "ホーム", user_path(current_user.id) %></li>
+        <li><%= link_to "仲間を探す",   users_path %></li>
+        <li><%= link_to "記録する", new_blog_path %></li>
+        <li><%= link_to "その他",edit_user_path(current_user.id) %></li>
+        <li><%= link_to "ログアウト",logout_path,method: :delete %></li>
+        <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Home",root_path %></li>
+          <li><%= link_to "Help",   '#' %></li>
+          <li><%= link_to "Log in", login_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </header>

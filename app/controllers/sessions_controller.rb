@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
       log_in user
-      redirect_to blogs_path, success: "ログインに成功しました"
+      redirect_to user_path(user), success: "ログインに成功しました"
     else
       flash.now[:danger] = "ログインに失敗しました"
       render :new
@@ -18,10 +18,6 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
-  private
-  def  log_in(user)
-    session[:user_id] = user.id
-  end
 
 
 end

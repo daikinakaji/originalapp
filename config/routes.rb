@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  resources :meetings
   get 'profiles/index'
   root 'pages#index'
   resources :users
@@ -8,6 +10,6 @@ Rails.application.routes.draw do
   delete "/logout", to:"sessions#destroy"
   get "/blogs", to: "blogs#index"
   get "/profiles", to: "profiles#index"
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
